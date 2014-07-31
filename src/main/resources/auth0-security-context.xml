@@ -15,22 +15,22 @@ http://www.springframework.org/schema/security/spring-security-3.2.xsd">
 		</property>
 	</bean>
 
+	<bean id="forbiddenEntryPoint" class="org.springframework.security.web.authentication.Http403ForbiddenEntryPoint" />
+
 	<security:http entry-point-ref="forbiddenEntryPoint">
-		<security:intercept-url pattern="/entry/**" access="ROLE_USER" />
+		<security:intercept-url pattern="/**" access="ROLE_USER" />
 		<security:custom-filter ref="auth0Filter" after="SECURITY_CONTEXT_FILTER"></security:custom-filter>
 	</security:http>
 
-	<bean id="auth0Filter" class="ddt.spring.security.auth0.Auth0AuthenticationFilter">
+	<bean id="auth0Filter" class="sib.calipho.security.auth0.Auth0AuthenticationFilter">
 		<property name="authenticationManager" ref="authenticationManager"></property>
 	</bean>
 
-	<bean id="auth0AuthenticationProvider" class="ddt.spring.security.auth0.Auth0AuthenticationProvider">
+	<bean id="auth0AuthenticationProvider" class="sib.calipho.security.auth0.Auth0AuthenticationProvider">
 		<property name="clientSecret" value="${auth0.clientSecret}" ></property>
 		<property name="clientId" value="${auth0.clientId}" ></property>
 	</bean>
 
-
-	<bean id="forbiddenEntryPoint" class="org.springframework.security.web.authentication.Http403ForbiddenEntryPoint" />
 
 	<security:authentication-manager>
 		<security:authentication-provider ref="auth0AuthenticationProvider" />

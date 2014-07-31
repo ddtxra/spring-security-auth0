@@ -1,4 +1,4 @@
-package ddt.spring.security.auth0;
+package sib.calipho.spring.security.auth0;
 
 import junit.framework.Test;
 import junit.framework.TestCase;

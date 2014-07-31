@@ -2,12 +2,12 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>ddt.soft</groupId>
+	<groupId>sib.calipho</groupId>
 	<artifactId>spring-security-auth0</artifactId>
 	<version>0.0.1</version>
 	<packaging>jar</packaging>
 
-	<name>ddt.security.auth0</name>
+	<name>spring-security-auth0</name>
 	<url>http://maven.apache.org</url>
 
 	<properties>

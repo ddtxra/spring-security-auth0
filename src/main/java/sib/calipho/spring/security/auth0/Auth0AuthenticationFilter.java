@@ -1,4 +1,4 @@
-package ddt.spring.security.auth0;
+package sib.calipho.spring.security.auth0;
 
 import java.io.IOException;
 import java.util.regex.Pattern;
