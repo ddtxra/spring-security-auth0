@@ -15,18 +15,19 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.filter.GenericFilterBean;
 
+/**
+ * Filter responsible to intercept the JWT in the HTTP header and attempt an authentication. It delegates the authentication to the authentication manager 
+ * @author Daniel Teixeira
+ *
+ */
 public class Auth0AuthenticationFilter extends GenericFilterBean {
 	
 	private AuthenticationManager authenticationManager;
 
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
 
-		System.out.println("CONTEXT" + SecurityContextHolder.getContext() + " CLASS AUTH MANAGER" + authenticationManager.getClass().getCanonicalName());
-
 		String jwt = getToken((HttpServletRequest) request);
 		
-		System.out.println("Found token" + jwt);
-
 		if (jwt != null) {
 		
 			Auth0JWTToken token = new Auth0JWTToken(jwt);
@@ -54,7 +55,13 @@ public class Auth0AuthenticationFilter extends GenericFilterBean {
 	}
 	
 	
-	
+
+	/**
+	 * Looks at the authorization bearer
+	 * @param httpRequest
+	 * @return
+	 * @throws ServletException
+	 */
 	 private String getToken(HttpServletRequest httpRequest) throws ServletException {
 	    	String token = null;
 	        final String authorizationHeader = httpRequest.getHeader("authorization");

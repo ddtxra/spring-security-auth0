@@ -12,6 +12,11 @@ import org.springframework.security.core.AuthenticationException;
 
 import com.auth0.jwt.JWTVerifier;
 
+/**
+ * Class that verifies the JWT token and in case of beeing valid, it will set the userdetails in the authentication object
+ * @author Daniel Teixeira
+ *
+ */
 public class Auth0AuthenticationProvider implements AuthenticationProvider, InitializingBean {
 	
 	private JWTVerifier jwtVerifier = null;

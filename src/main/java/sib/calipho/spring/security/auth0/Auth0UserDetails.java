@@ -12,6 +12,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 /**
  * Implementation of UserDetails in compliance with the decoded object returned by the Auth0 JWT 
+ * 
  * @author Daniel Teixeira
  *
  */
