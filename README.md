@@ -1,6 +1,8 @@
 spring-security-auth0
 =====================
 
+[![Build Status](https://travis-ci.org/ddtxra/spring-security-auth0.svg?branch=master)](https://travis-ci.org/ddtxra/spring-security-auth0)
+
 An integration of spring security with Auth0.
 This module is intented to include in your existing spring mvc project.
 
