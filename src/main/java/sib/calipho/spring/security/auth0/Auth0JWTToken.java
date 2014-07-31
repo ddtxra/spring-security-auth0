@@ -2,6 +2,13 @@ package sib.calipho.spring.security.auth0;
 
 import org.springframework.security.authentication.AbstractAuthenticationToken;
 
+/**
+ * Implements the org.springframework.security.core.Authentication interface.
+ * The constructor is set with the Auth0 JWT
+ * 
+ * @author Daniel Teixeira
+ * 
+ */
 public class Auth0JWTToken extends AbstractAuthenticationToken {
 
 	private static final long serialVersionUID = 2371882820082543721L;
