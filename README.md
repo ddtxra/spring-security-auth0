@@ -35,4 +35,3 @@ That's it you should be able to run the spring security with Auth0 and access th
 Please update for any feedback or comment! 
 
 ### Advanced configurations
-TODO
