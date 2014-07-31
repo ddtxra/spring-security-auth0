@@ -38,6 +38,7 @@ That's it! You should be able to run the spring security with Auth0 and access t
 
 The username returned by UserDetails is the email if it exists, otherwise it is the user_id.
 The user role associated to an user is the USER_ROLE.
+The other Auth0 attributes can be accessed via the method getAuth0Attribute. Example getAuth0Attribute("picture"), getAuth0Attribute("gender") ... 
 Don't hesitate to change this behaviour associated to your needs.
 
 

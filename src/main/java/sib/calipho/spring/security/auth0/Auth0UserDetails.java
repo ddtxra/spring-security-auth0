@@ -20,6 +20,7 @@ public class Auth0UserDetails implements UserDetails {
 
 	private static final long serialVersionUID = 2058797193125711681L;
 
+	private Map<String, Object> details;
 	private String username;
 	private boolean emailVerified = false;
 	private Collection<GrantedAuthority> authorities = null;
@@ -40,6 +41,8 @@ public class Auth0UserDetails implements UserDetails {
 
 		authorities = new ArrayList<GrantedAuthority>();
 		authorities.add(new SimpleGrantedAuthority("USER_ROLE"));
+		
+		this.details = map;
 
 	}
 
@@ -88,5 +91,16 @@ public class Auth0UserDetails implements UserDetails {
 	public boolean isEnabled() {
 		return emailVerified;
 	}
+
+	/**
+	 * Will return the details of the attribute of JWT decoded token if it exists or null otherwise.
+	 * Example getAuth0Attribute("email"), getAuth0Attribute("picture")....
+	 * 
+	 * @return return the details of the JWT decoded token if it exists  or null otherwise
+	 */
+	public Object getAuth0Attribute(String attributeName) {
+		return details.get(attributeName);
+	}
+
 
 }
