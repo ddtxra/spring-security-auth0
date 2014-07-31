@@ -41,41 +41,11 @@ The username returned by UserDetails is the email if it exists, otherwise it is 
 The user role associated to an user is the USER_ROLE.
 Don't hesitate to change this behaviour associated to your needs.
 
-## Questions / feedback / comments? 
-[Contact us](http://www.nextprot.org/contact/us)
 
 ### Advanced configurations
-Don't include the auth0-security-context.xml in your application context.
-The default configuration in auth0-security-context.xml looks like this:
+Don't include the [auth0-security-context.xml](src/main/resources/auth0-security-context.xml) in your application context. Edit it, according to your needs.
 
-```XML
-    <bean id="authenticationManager" class="org.springframework.security.authentication.ProviderManager">
-        <property name="providers">
-        <list>
-          <ref local="auth0AuthenticationProvider"/>
-        </list>
-        </property>
-    </bean>
-
-    <bean id="forbiddenEntryPoint" class="org.springframework.security.web.authentication.Http403ForbiddenEntryPoint" />
-
-    <security:http entry-point-ref="forbiddenEntryPoint">
-        <security:intercept-url pattern="/**" access="ROLE_USER" />
-        <security:custom-filter ref="auth0Filter" after="SECURITY_CONTEXT_FILTER"></security:custom-filter>
-    </security:http>
-
-    <bean id="auth0Filter" class="sib.calipho.security.auth0.Auth0AuthenticationFilter">
-        <property name="authenticationManager" ref="authenticationManager"></property>
-    </bean>
-
-    <bean id="auth0AuthenticationProvider" class="sib.calipho.security.auth0.Auth0AuthenticationProvider">
-        <property name="clientSecret" value="${auth0.clientSecret}" ></property>
-        <property name="clientId" value="${auth0.clientId}" ></property>
-    </bean>
+### Questions / feedback / comments? 
+[Contact us](http://www.nextprot.org/contact/us)
 
 
-    <security:authentication-manager>
-        <security:authentication-provider ref="auth0AuthenticationProvider" />
-    </security:authentication-manager>
-```
- 
