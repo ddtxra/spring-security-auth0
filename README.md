@@ -1,16 +1,16 @@
 spring-security-auth0
 =====================
 
-An integration of spring security with Auth0
+An integration of spring security with Auth0.
+This module is intented to include in your existing spring mvc project.
 
-Build and install this project using the maven command:
+Build and install the project using the maven command:
 
 ```Shell
 mvn install
 ```
 
-Add the dependencies to your project
-
+Add the dependencies to your existing maven project
 ```XML
 <dependency>
 	<groupId>sib.calipho</groupId>
@@ -24,10 +24,15 @@ Include in your existing Spring project the Auth0 configuration
 	<import resource="classpath:auth0-security-context.xml" /> 
 ```
 
-In order to set the correct client id and client secret, your should use the Spring Security Place Holder to read a file with your auth0.clientSecret and auth0.clientId given by Auth0. Or for the purpose of testing you can simply change the code
-```XML
-	<bean id="auth0AuthenticationProvider" class="ddt.spring.security.auth0.Auth0AuthenticationProvider">
-		<property name="clientSecret" value="${auth0.clientSecret}" ></property>
-		<property name="clientId" value="${auth0.clientId}" ></property>
-	</bean>
+Set the properties auth0.clientSecret and auth0.clienId in a property file read from spring property place holder:
+```Shell
+auth0.clientId=YOUR_CLIENT_ID
+auth0.clientSecret=YOUR_CLIENT_SECRET
 ```
+
+That's it you should be able to run the spring security with Auth0 and access the UserDetails in your SecurityContext.
+
+Please update for any feedback or comment! 
+
+### Advanced configurations
+TODO
