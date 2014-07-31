@@ -3,7 +3,7 @@ spring-security-auth0
 
 [![Build Status](https://travis-ci.org/ddtxra/spring-security-auth0.svg?branch=master)](https://travis-ci.org/ddtxra/spring-security-auth0)
 
-An integration of spring security with <a href="http://auth0.com">Auth0</a>.
+An integration of spring security with [Auth0](http://auth0.com).
 This module is intended to be include in your existing spring mvc project.
 
 This module was tested with Spring Security 3.2.4.
@@ -23,8 +23,7 @@ Add the dependencies to your existing maven project
 </dependency>
 ```
 
-Include in your existing Spring project the Auth0 configuration (you will need to have the spring springSecurityFilterChain defined on your web.xml)
-See spring
+Include in your existing Spring project the Auth0 configuration (you will also need to configure the spring security filter [springSecurityFilterChain](http://docs.spring.io/spring-security/site/docs/3.0.x/reference/security-filter-chain.html) in your web.xml)
 ```XML
 	<import resource="classpath:auth0-security-context.xml" /> 
 ```
