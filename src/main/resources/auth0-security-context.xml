@@ -17,7 +17,7 @@ http://www.springframework.org/schema/security/spring-security-3.2.xsd">
 
 	<bean id="forbiddenEntryPoint" class="org.springframework.security.web.authentication.Http403ForbiddenEntryPoint" />
 
-	<security:http entry-point-ref="forbiddenEntryPoint">
+	<security:http entry-point-ref="forbiddenEntryPoint" create-session="stateless">
 		<security:intercept-url pattern="/**" access="ROLE_USER" />
 		<security:custom-filter ref="auth0Filter" after="SECURITY_CONTEXT_FILTER"></security:custom-filter>
 	</security:http>
