@@ -6,15 +6,6 @@ http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
 http://www.springframework.org/schema/security
 http://www.springframework.org/schema/security/spring-security-3.2.xsd">
 
-
-	<bean id="authenticationManager" class="org.springframework.security.authentication.ProviderManager">
-		<property name="providers">
-		<list>
-		  <ref local="auth0AuthenticationProvider"/>
-		</list>
-		</property>
-	</bean>
-
 	<bean id="forbiddenEntryPoint" class="org.springframework.security.web.authentication.Http403ForbiddenEntryPoint" />
 
 	<security:http entry-point-ref="forbiddenEntryPoint" create-session="stateless">
@@ -31,8 +22,7 @@ http://www.springframework.org/schema/security/spring-security-3.2.xsd">
 		<property name="clientId" value="${auth0.clientId}" ></property>
 	</bean>
 
-
-	<security:authentication-manager>
+	<security:authentication-manager alias="authenticationManager">
 		<security:authentication-provider ref="auth0AuthenticationProvider" />
 	</security:authentication-manager>
 	
