@@ -31,16 +31,18 @@ public class Auth0UserDetails implements UserDetails {
 
 		if (map.containsKey("email")) {
 			this.username = map.get("email").toString();
-		} else {
+		}else if (map.containsKey("user_id")) {
 			this.username = map.get("user_id").toString();
+		}else if (map.containsKey("user_id")) {
+			this.username = "UNKOWNUN_USER";
 		}
-
+		
 		if (map.containsKey("email")) {
 			this.emailVerified = Boolean.valueOf(map.get("email_verified").toString());
 		}
 
 		authorities = new ArrayList<GrantedAuthority>();
-		authorities.add(new SimpleGrantedAuthority("USER_ROLE"));
+		authorities.add(new SimpleGrantedAuthority("ROLE_USER"));
 		
 		this.details = map;
 

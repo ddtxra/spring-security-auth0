@@ -1,6 +1,9 @@
 package sib.calipho.spring.security.auth0;
 
+import java.util.Collection;
+
 import org.springframework.security.authentication.AbstractAuthenticationToken;
+import org.springframework.security.core.GrantedAuthority;
 
 /**
  * Implements the org.springframework.security.core.Authentication interface.
@@ -36,5 +39,11 @@ public class Auth0JWTToken extends AbstractAuthenticationToken {
 	public void setPrincipal(Auth0UserDetails principal) {
 		this.principal = principal;
 	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+    public Collection<GrantedAuthority> getAuthorities() {
+		return (Collection<GrantedAuthority>) principal.getAuthorities();
+     }
 
 }

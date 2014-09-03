@@ -2,19 +2,25 @@
 	xmlns:security="http://www.springframework.org/schema/security"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans
-http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
 http://www.springframework.org/schema/security
 http://www.springframework.org/schema/security/spring-security-3.2.xsd">
 
-	<bean id="forbiddenEntryPoint" class="org.springframework.security.web.authentication.Http403ForbiddenEntryPoint" />
+	<bean id="auth0EntryPoint" class="sib.calipho.spring.security.auth0.Auth0AuthenticationEntryPoint" />
 
-	<security:http entry-point-ref="forbiddenEntryPoint" create-session="stateless">
-		<security:intercept-url pattern="/**" access="ROLE_USER" />
-		<security:custom-filter ref="auth0Filter" after="SECURITY_CONTEXT_FILTER"></security:custom-filter>
+	<!-- all urls starting with unsecured are -->
+	<security:http auto-config="true" pattern="/unsecured/**" use-expressions="true" create-session="stateless"  entry-point-ref="auth0EntryPoint">
+		<security:intercept-url pattern="/unsecured/**" access="permitAll" />
+	</security:http>
+
+	<!-- Otherwise by default everything is secured -->
+	<security:http  pattern="/**" create-session="stateless"  entry-point-ref="auth0EntryPoint">
+		<security:intercept-url pattern="/**" access='ROLE_USER' />
+		<security:custom-filter ref="auth0Filter" after="SECURITY_CONTEXT_FILTER" ></security:custom-filter>
 	</security:http>
 
 	<bean id="auth0Filter" class="sib.calipho.spring.security.auth0.Auth0AuthenticationFilter">
-		<property name="authenticationManager" ref="authenticationManager"></property>
+		<property name="entryPoint" ref="auth0EntryPoint"></property>
 	</bean>
 
 	<bean id="auth0AuthenticationProvider" class="sib.calipho.spring.security.auth0.Auth0AuthenticationProvider">
