@@ -1,13 +1,6 @@
 spring-security-auth0
 =====================
 
-[![Build Status](https://travis-ci.org/calipho-sib/spring-security-auth0.svg?branch=master)](https://travis-ci.org/calipho-sib/spring-security-auth0)
-
-An integration of spring security with [Auth0](http://auth0.com).
-This module is intended to be include in your existing spring mvc project.
-
-This module was tested with Spring Security 3.2.4.
-
 Build and install the project using the maven command:
 
 ```Shell
@@ -27,6 +20,7 @@ Include in your existing Spring project the Auth0 configuration (you will also n
 ```XML
 	<import resource="classpath:auth0-security-context.xml" /> 
 ```
+This configuration will secure URL starting with /secured/* . Feel free to modify it according to your needs.
 
 Set the Auth0 properties in a property file read from spring property placeholder.
 ```Shell
@@ -43,7 +37,7 @@ Don't hesitate to change this behaviour associated to your needs.
 
 
 ### Advanced configurations
-Don't include the [auth0-security-context.xml](src/main/resources/auth0-security-context.xml) in your application context. Edit it, according to your needs.
+Edit the [auth0-security-context.xml](src/main/resources/auth0-security-context.xml) according to your needs.
 
 ### Questions / feedback / comments? 
 [Contact us](http://www.nextprot.org/contact/us)
