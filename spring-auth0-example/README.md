@@ -3,7 +3,12 @@ spring-security-auth0-example
 
 This is a working skeleton using auth0 and spring security.
 
-Simply edit the [auth0.properties](src/main/resources/auth0.properties) with your client id, secret and domain.
+== Prerequisite
+Install the [spring-auth0-core](../spring-auth0-core/) module by running "mvn install" on the parent folder or directly on the spring-auth0-core folder. 
+
+== Running
+
+Edit the [src/main/resources/auth0.properties](src/main/resources/auth0.properties) with your client id, secret and domain.
 
 ```Shell
 auth0.clientId=YOUR_CLIENT_ID
