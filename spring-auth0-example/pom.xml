@@ -18,7 +18,7 @@
 
 	<groupId>sib.calipho</groupId>
 	<artifactId>spring-auth0-example</artifactId>
-	<version>0.0.1</version>
+	<version>0.0.2-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
 	<name>spring-auth0-example</name>
