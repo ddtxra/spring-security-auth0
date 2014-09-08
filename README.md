@@ -8,4 +8,4 @@ This module is intended to be include in your existing spring mvc project.
 
 This module was tested with Spring Security 3.2.4.
 
-Either see the [spring-auth0-core]|(spring-auth0-core) for the integration instruction or look at the [spring-auth0-example]/(spring-auth0-example) for a demo.
+Either see the [spring-auth0-core](spring-auth0-core/) for the integration instruction or look at the [spring-auth0-example](spring-auth0-example/) for a demo.
