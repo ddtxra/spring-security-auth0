@@ -34,10 +34,10 @@ public abstract class MVCBaseSecurityTest {
 
 	@Autowired
 	private FilterChainProxy springSecurityFilterChain;
-/*
+
 	@Autowired
 	private Auth0TokenHelper<Object> tokenHelper;
-*/
+
 	protected MockMvc mockMvc;
 
 	@Before
@@ -50,7 +50,7 @@ public abstract class MVCBaseSecurityTest {
 		map.put("email", "auth0@test.com");
 
 		//TODO check int overflow???
-		return "hello"; //tokenHelper.generateToken(map, (int) time.toSeconds(value));
+		return tokenHelper.generateToken(map, (int) time.toSeconds(value));
 
 	}
 
