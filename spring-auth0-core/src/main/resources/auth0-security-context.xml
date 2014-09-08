@@ -9,14 +9,14 @@ http://www.springframework.org/schema/security/spring-security-3.2.xsd">
 	<bean id="auth0EntryPoint" class="sib.calipho.spring.security.auth0.Auth0AuthenticationEntryPoint" />
 
 	<!-- all urls starting with unsecured are -->
-	<security:http auto-config="true" pattern="/unsecured/**" use-expressions="true" create-session="stateless"  entry-point-ref="auth0EntryPoint">
-		<security:intercept-url pattern="/unsecured/**" access="permitAll" />
+	<security:http pattern="/secured/**" create-session="stateless"  entry-point-ref="auth0EntryPoint">
+		<security:intercept-url pattern="/secured/**" access="ROLE_USER" />
+		<security:custom-filter ref="auth0Filter" after="SECURITY_CONTEXT_FILTER" ></security:custom-filter>
 	</security:http>
 
 	<!-- Otherwise by default everything is secured -->
-	<security:http  pattern="/**" create-session="stateless"  entry-point-ref="auth0EntryPoint">
-		<security:intercept-url pattern="/**" access='ROLE_USER' />
-		<security:custom-filter ref="auth0Filter" after="SECURITY_CONTEXT_FILTER" ></security:custom-filter>
+	<security:http auto-config="true" use-expressions="true"  pattern="/**" create-session="stateless"  entry-point-ref="auth0EntryPoint">
+		<security:intercept-url pattern="/**" access='permitAll' />
 	</security:http>
 
 	<bean id="auth0Filter" class="sib.calipho.spring.security.auth0.Auth0AuthenticationFilter">
