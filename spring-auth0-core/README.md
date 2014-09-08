@@ -11,7 +11,7 @@ Add the dependencies to your existing maven project
 ```XML
 <dependency>
 	<groupId>sib.calipho</groupId>
-	<artifactId>spring-auth0-core<</artifactId>
+	<artifactId>spring-auth0-core</artifactId>
 	<version>0.0.1</version>
 </dependency>
 ```
