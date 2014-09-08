@@ -20,7 +20,7 @@ auth0.domain=YOUR_CLIENT_DOMAIN
 
 Go to Auth0 dashboard and add [http://localhost:8080/spring-auth0-example/](http://localhost:8080/spring-auth0-example/) as an App Callback URL.
 
-You should now be able to run it by typing:
+You should now be able to run the application:
 
 ```Shell
 mvn jetty:run
