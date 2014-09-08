@@ -26,6 +26,7 @@ public class Auth0AuthenticationProvider implements AuthenticationProvider, Init
 	private String clientSecret = null;
 	private String clientId = null;
 	private final Log logger = LogFactory.getLog(getClass());
+	private static final AuthenticationException AUTH_ERROR = new Auth0TokenException("Authentication error occured");
 
 	public String getClientSecret() {
 		return clientSecret;
@@ -61,19 +62,19 @@ public class Auth0AuthenticationProvider implements AuthenticationProvider, Init
 
 		} catch (InvalidKeyException e) {
 			logger.debug("InvalidKeyException thrown while decoding JWT token " + e.getLocalizedMessage());
-			throw new Auth0TokenException(e);
+			throw AUTH_ERROR;
 		} catch (NoSuchAlgorithmException e) {
 			logger.debug("NoSuchAlgorithmException thrown while decoding JWT token " + e.getLocalizedMessage());
-			throw new Auth0TokenException(e);
+			throw AUTH_ERROR;
 		} catch (IllegalStateException e) {
 			logger.debug("IllegalStateException thrown while decoding JWT token " + e.getLocalizedMessage());
-			throw new Auth0TokenException(e);
+			throw AUTH_ERROR;
 		} catch (SignatureException e) {
 			logger.debug("SignatureException thrown while decoding JWT token " + e.getLocalizedMessage());
-			throw new Auth0TokenException(e);
+			throw AUTH_ERROR;
 		} catch (IOException e) {
 			logger.debug("IOException thrown while decoding JWT token " + e.getLocalizedMessage());
-			throw new Auth0TokenException(e);
+			throw AUTH_ERROR;
 		}
 	}
 
