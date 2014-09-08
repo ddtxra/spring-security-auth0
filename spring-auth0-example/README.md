@@ -19,5 +19,7 @@ You should now be able to run it by typing:
 mvn jetty:run
 ```
 
+And access: [http://localhost:8080/spring-auth0-example/](http://localhost:8080/spring-auth0-example/)
+
 ### Questions / feedback / comments?
 [Contact us](http://www.nextprot.org/contact/us)
