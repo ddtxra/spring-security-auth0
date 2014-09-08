@@ -17,6 +17,7 @@ $(document).ready(
 				$('#token').val("");
 				$('.btn-login').show();
 				$('.btn-logout').hide();
+				$('#nickname').val("");
 			})
 			
 			console.log("userToken" , localStorage.getItem('userToken'));
@@ -25,6 +26,7 @@ $(document).ready(
 				$('.btn-login').hide();
 				$('.btn-logout').show();
 				$('#token').val(localStorage.getItem('userToken'));
+				$('.nickname').val('someone');
 			}else {
 				$('.btn-login').show();
 				$('.btn-logout').hide();
@@ -45,6 +47,8 @@ $(document).ready(
 						// Save the JWT token.
 						localStorage.setItem('userToken', token);
 						$('#token').val(token);
+						$('.btn-login').hide();
+						$('.btn-logout').show();
 
 						// Save the profile
 						userProfile = profile;
@@ -72,12 +76,12 @@ $(document).ready(
 				$.ajax({
 					url : urlSecured
 				}).done(function(data, statusText, xhr) {
-					var status = xhr.status; //200
-					alert("Status code" + status);
+					//var status = xhr.status; //200
+					alert(xhr.responseText);
 					//var head = xhr.getAllResponseHeaders(); //Detail header info
 				}).error(function(error, status, xhr) {
-					console.log(error, status);
-					alert("Error" + error.responseText);
+					//console.log(error, status);
+					alert("Error: " + error.responseText);
 				});
 			})
 

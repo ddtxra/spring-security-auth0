@@ -57,6 +57,12 @@ h2 {
   margin-bottom: 40px;
   font-size: 200%;
 }
+#token {
+	font-size: 12px;
+	width: 800px;
+	height: 100px;
+	margin: 10px;
+}
 label {
   font-size: 100%;
   font-weight: 300;

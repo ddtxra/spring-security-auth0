@@ -4,7 +4,6 @@
 <head>
 <script type="text/javascript">
 	var auth0ClientId = '<c:out value="${id}"/>';
-	var auth0ClientSecret = '<c:out value="${secret}"/>';
 	var auth0ClientDomain = '<c:out value="${domain}"/>';
 </script>
 
@@ -43,9 +42,12 @@
 				<img src="https://i.cloudup.com/StzWWrY34s.png" /> 
 				<img src="http://www.javatpoint.com/images/spimages/spring1.png"/>
 				<h3>Auth0 Example with Spring</h3>
-				<div align="center"><textarea id="token"></textarea></div>
 				<a ng-click="login()" class="btn btn-primary btn-lg btn-login">Sign In</a>
 				<a ng-click="logout()" class="btn btn-primary btn-lg btn-logout">Log Out</a>
+				<span class="nickname"></span>
+				
+				<div align="center"><textarea id="token"></textarea></div>
+				
 			</div>
 			<div class="logged-in-box auth0-box logged-in">
 				<button class="btn btn-lg btn-primary btn-api">Call API secured method</button>
