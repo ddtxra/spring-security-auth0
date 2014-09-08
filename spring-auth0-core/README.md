@@ -18,7 +18,7 @@ Add the dependencies to your existing maven project
 ```XML
 <dependency>
 	<groupId>sib.calipho</groupId>
-	<artifactId>spring-security-auth0</artifactId>
+	<artifactId>spring-auth0-core<</artifactId>
 	<version>0.0.1</version>
 </dependency>
 ```
@@ -47,5 +47,3 @@ Don't include the [auth0-security-context.xml](src/main/resources/auth0-security
 
 ### Questions / feedback / comments? 
 [Contact us](http://www.nextprot.org/contact/us)
-
-
