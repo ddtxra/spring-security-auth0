@@ -38,6 +38,3 @@ Don't hesitate to change this behaviour associated to your needs.
 
 ### Advanced configurations
 Edit the [auth0-security-context.xml](src/main/resources/auth0-security-context.xml) according to your needs.
-
-### Questions / feedback / comments? 
-[Contact us](http://www.nextprot.org/contact/us)
