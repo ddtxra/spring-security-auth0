@@ -22,8 +22,7 @@
         </modules>
 
 	<dependencies>
-
-
+		
 		<!-- Auth0 dependencies -->
 		<dependency>
 			<groupId>com.auth0</groupId>
