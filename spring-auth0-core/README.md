@@ -31,7 +31,7 @@ auth0.clientSecret=YOUR_CLIENT_SECRET
 That's it! You should be able to run the spring security with Auth0 and access the [Auth0UserDetails](src/main/java/sib/calipho/spring/security/auth0/Auth0UserDetails.java) as principal in your SecurityContext.
 
 The username returned by UserDetails is the email if it exists, otherwise it is the user_id.
-The user role associated to an user is the USER_ROLE.
+The roles associated to a user are the ones set in the profile.roles attribute by auth0 (one can set a custom rule). If the attribute roles is not set, the USER_ROLE role will be given by default.
 The other Auth0 attributes can be accessed via the method getAuth0Attribute. Example getAuth0Attribute("picture"), getAuth0Attribute("gender") ... 
 Don't hesitate to change this behaviour associated to your needs.
 
