@@ -3,10 +3,6 @@ spring-security-auth0-example
 
 This is a working skeleton using auth0 and spring security.
 
-Prerequisite
-==
-Install the [spring-auth0-core](../spring-auth0-core/) module by running "mvn install" on the parent folder or directly on the spring-auth0-core folder. 
-
 Running
 ==
 
