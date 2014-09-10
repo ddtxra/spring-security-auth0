@@ -41,8 +41,21 @@ public class Auth0UserDetails implements UserDetails {
 			this.emailVerified = Boolean.valueOf(map.get("email_verified").toString());
 		}
 
+		//set authorities
 		authorities = new ArrayList<GrantedAuthority>();
-		authorities.add(new SimpleGrantedAuthority("ROLE_USER"));
+		if (map.containsKey("roles")) {
+			String[] roles = (String[]) map.get("roles");
+			for(String role : roles){
+				authorities.add(new SimpleGrantedAuthority(role));
+			}
+		}
+		
+		//By default if nothing is added
+		if(authorities.isEmpty()){
+			authorities.add(new SimpleGrantedAuthority("ROLE_USER"));
+		}
+		
+			
 		
 		this.details = map;
 

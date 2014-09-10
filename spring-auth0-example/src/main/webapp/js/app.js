@@ -34,9 +34,7 @@ $(document).ready(
 
 			$('.btn-login').click(function(e) {
 				e.preventDefault();
-				widget.signin({
-					popup : true
-				}, null, function(err, profile, token) {
+				widget.signin({ popup: true, scope : 'openid profile'}, null, function(err, profile, token) {
 					if (err) {
 						// Error callback
 						console.log("There was an error");
