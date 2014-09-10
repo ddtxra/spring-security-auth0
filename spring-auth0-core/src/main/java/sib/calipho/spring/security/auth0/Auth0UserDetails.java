@@ -25,7 +25,7 @@ public class Auth0UserDetails implements UserDetails {
 	private boolean emailVerified = false;
 	private Collection<GrantedAuthority> authorities = null;
 	
-	protected final Log logger = LogFactory.getLog(getClass());
+	private static final Log LOGGER = LogFactory.getLog(Auth0UserDetails.class);
 
 	public Auth0UserDetails(Map<String, Object> map) {
 
@@ -44,9 +44,15 @@ public class Auth0UserDetails implements UserDetails {
 		//set authorities
 		authorities = new ArrayList<GrantedAuthority>();
 		if (map.containsKey("roles")) {
-			String[] roles = (String[]) map.get("roles");
-			for(String role : roles){
-				authorities.add(new SimpleGrantedAuthority(role));
+			ArrayList<String> roles = null;
+			try {
+				roles = (ArrayList) map.get("roles");
+				for(String role : roles){
+					authorities.add(new SimpleGrantedAuthority(role));
+				}
+			}catch (java.lang.ClassCastException e){
+				e.printStackTrace();
+				LOGGER.error("Error in casting the roles object");
 			}
 		}
 		
