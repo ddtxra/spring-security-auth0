@@ -3,12 +3,11 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.auth0</groupId>
-  <artifactId>spring-security-auth0</artifactId>
-  <version>0.1-SNAPSHOT</version>
-  <name>spring-security-auth0</name>
-  <url>http://auth0.com</url>
-  <packaging>jar</packaging>
-
+	<artifactId>spring-security-auth0-api-example</artifactId>
+	<version>0.1-SNAPSHOT</version>
+	<name>spring-security-auth0-api-example</name>
+	<url>http://auth0.com</url>
+	<packaging>jar</packaging>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -19,11 +18,11 @@
 
 	<dependencies>
 
-		<!-- Auth0 dependencies -->
+
 		<dependency>
 			<groupId>com.auth0</groupId>
-			<artifactId>java-jwt</artifactId>
-			<version>0.3</version>
+			<artifactId>spring-security-auth0</artifactId>
+			<version>${project.version}</version>
 		</dependency>
 
 		<!-- Servlet dependencies -->
@@ -107,6 +106,30 @@
 			<version>1.9.5</version>
 			<scope>test</scope>
 		</dependency>
+		<dependency>
+			<groupId>org.mortbay.jetty</groupId>
+			<artifactId>jsp-2.1</artifactId>
+			<version>6.0.0</version>
+		</dependency>
+
 	</dependencies>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.mortbay.jetty</groupId>
+				<artifactId>maven-jetty-plugin</artifactId>
+				<version>6.1.26</version>
+				<configuration>
+					<contextPath>/</contextPath>   s
+					<scanIntervalSeconds>10</scanIntervalSeconds>
+					<connectors>
+						<connector implementation="org.mortbay.jetty.nio.SelectChannelConnector">
+							<port>3001</port>
+						</connector>
+					</connectors>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
 
 </project>
