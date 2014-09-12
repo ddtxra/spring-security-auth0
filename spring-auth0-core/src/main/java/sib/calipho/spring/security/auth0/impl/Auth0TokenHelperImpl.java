@@ -38,8 +38,7 @@ public class Auth0TokenHelperImpl implements Auth0TokenHelper<Object>, Initializ
 			payload = new  ObjectMapper().writeValueAsString(object);
 
 		    ClaimSet claimSet = new ClaimSet();
-		    claimSet.setExp(expiration); // expire in 1 year
-		    
+		    claimSet.setExp(expiration); 		    
 		    token = jwtSigner.encode(Algorithm.HS256, payload, "payload", new String(Base64.decodeBase64(clientSecret)), claimSet);
 		
 		} catch (JsonProcessingException e) {
